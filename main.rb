@@ -1,3 +1,4 @@
+# Recreation of enumerables.
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
@@ -13,7 +14,6 @@ module Enumerable
 
   def my_select
     return enum_for(__method__) unless block_given?
-
     array = []
     my_each { |n| array << n if yield n }
     array
@@ -22,7 +22,6 @@ module Enumerable
   def my_all?(arg = nil)
     puts "#{__FILE__}:#{__LINE__}: w: block not used" if arg && block_given?
     return my_all_extra_func(arg) if arg
-
     if !block_given?
       size.times { |n| return false if to_a[n] == false || to_a[n].nil? }
     else
@@ -86,7 +85,6 @@ module Enumerable
 
   def my_map(method = nil)
     return enum_for(__method__) unless block_given? || method
-    
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
@@ -99,7 +97,7 @@ module Enumerable
   def my_inject(param1 = nil, param2 = nil)
     arr = is_a?(Array) ? self : to_a
     sym = param1 if param1.is_a?(Symbol) || param1.is_a?(String)
-    accumulator = param1 if param1.is_a? Integer
+    accum = param1 if param1.is_a? Integer
 
     if param1.is_a?(Integer)
       if param2.is_a?(Symbol) || param2.is_a?(String)
@@ -114,18 +112,16 @@ module Enumerable
     end
 
     if sym
-      arr.my_each { |n| accumulator = accumulator ? accumulator.send(sym, n) : n }
+      arr.my_each { |n| accum = accum ? accum.send(sym, n) : n }
     elsif block_given?
-      arr.my_each { |n| accumulator = accumulator ? yield(accumulator, n) : n }
+      arr.my_each { |n| accum = accum ? yield(accum, n) : n }
     else
       raise 'no block given'
     end
-    accumulator
+    accum
   end
 end
 
 def multiply_els(arr)
-  arr.my_inject { |accumulator, n| accumulator * n }
+  arr.my_inject { |accum, n| accum * n }
 end
-
-puts [1, 2i, 3.14].my_all?(Numeric)                       #=> true
