@@ -90,6 +90,7 @@ module Enumerable
 
   def my_map(method = nil)
     return enum_for(__method__) unless block_given? || method
+    
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
