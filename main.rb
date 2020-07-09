@@ -57,7 +57,7 @@ module Enumerable
     if arg.is_a?(Regexp)
       my_each { |n| return false unless arg.match? n.to_s }
     elsif arg
-      my_each { |n| return false unless arg === n }
+      my_each { |n| return false unless arg.include?(n) }
     end
   end
 
@@ -89,27 +89,27 @@ module Enumerable
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
-    else 
-      my_each { |n| mapped << (yield n)}
+    else
+      my_each { |n| mapped << (yield n) }
     end
     mapped
-  end 
+  end
 
-  def my_inject(param1 = nil, param2 = nil)
+  def my_inject(prm1 = nil, prm2 = nil)
     arr = is_a?(Array) ? self : to_a
-    sym = param1 if param1.is_a?(Symbol) || param1.is_a?(String)
-    accum = param1 if param1.is_a? Integer
+    sym = prm1 if prm1.is_a?(Symbol) || prm1.is_a?(String)
+    accum = prm1 if prm1.is_a? Integer
 
-    if param1.is_a?(Integer)
-      if param2.is_a?(Symbol) || param2.is_a?(String)
-        sym = param2
+    if prm1.is_a?(Integer)
+      if prm2.is_a?(Symbol) || prm2.is_a?(String)
+        sym = prm2
       elsif !block_given?
-        raise "#{param2} is not a symbol nor a string"
+        raise "#{prm2} is not a symbol nor a string"
       end
-    elsif param1.is_a?(Symbol) || param1.is_a?(String)
-      raise "#{param2} is not a symbol nor a string" if !param2.is_a?(Symbol) && !param2.nil?
+    elsif prm1.is_a?(Symbol) || prm1.is_a?(String)
+      raise "#{prm2} is not a symbol nor a string" if !prm2.is_a?(Symbol) && !prm2.nil?
 
-      raise "undefined method `#{param2}' for :#{param2}:Symbol" if param2.is_a?(Symbol) && !param2.nil?
+      raise "undefined method `#{prm2}' for :#{prm2}:Symbol" if prm2.is_a?(Symbol) && !prm2.nil?
     end
 
     if sym
@@ -126,3 +126,4 @@ end
 def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
