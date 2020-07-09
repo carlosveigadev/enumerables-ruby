@@ -70,4 +70,16 @@ module Enumerable
       !my_any?
     end
   end
+
+  def my_count(arg = 0)
+    counter = 0
+    if block_given?
+      my_each { |n| counter += 1 if yield n }
+    elsif arg.zero?
+      my_each { counter += 1 }
+    else
+      my_each { |n| counter += 1 if arg == n }
+    end
+    counter
+  end
 end
