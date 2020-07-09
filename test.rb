@@ -22,7 +22,7 @@ puts "my_all?"
 puts %w[ant bear cat].my_all? { |word| word.length >= 3 } #=> true
 puts %w[ant bear cat].my_all? { |word| word.length >= 4 } #=> false
 puts %w[ant bear cat].my_all?(/t/)                        #=> false
-# puts [1, 2i, 3.14].my_all?(Numeric)                       #=> true
+puts [1, 2i, 3.14].my_all?(Numeric)                       #=> true
 puts [nil, true, 99].my_all?                              #=> false
 puts [].my_all?                                           #=> true 
 puts "\n\n\n"
@@ -30,7 +30,7 @@ puts "\n\n\n"
 puts "my_any?"
 puts %w[ant bear cat].my_any? { |word| word.length >= 3 } #=> true
 puts %w[ant bear cat].my_any? { |word| word.length >= 4 } #=> true
-# puts %w[ant bear cat].my_any?(/d/)                        #=> false
+puts %w[ant bear cat].my_any?(/d/)                        #=> false
 puts [nil, true, 99].my_any?(Integer)                     #=> true
 puts [nil, true, 99].my_any?                              #=> true
 puts [].my_any?                                           #=> false
@@ -39,7 +39,7 @@ puts "\n\n\n"
 puts "my_none?"
 puts %w{ant bear cat}.my_none? { |word| word.length == 5 } #=> true
 puts %w{ant bear cat}.my_none? { |word| word.length >= 4 } #=> false
-# puts %w{ant bear cat}.my_none?(/d/)                        #=> true
+puts %w{ant bear cat}.my_none?(/d/)                        #=> true
 puts [1, 3.14, 42].my_none?(Float)                         #=> false
 puts [].my_none?                                           #=> true
 puts [nil].my_none?                                        #=> true

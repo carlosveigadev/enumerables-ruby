@@ -38,6 +38,7 @@ module Enumerable
     elsif arg
       my_each { |n| return false unless n.is_a? arg }
     end
+    true
   end
 
   def my_any?(arg = nil)
@@ -54,7 +55,7 @@ module Enumerable
 
   def my_any_extra_func(arg)
     if arg.is_a?(Regexp)
-      my_each { |n| return false unless fun.match? n.to_s }
+      my_each { |n| return false unless arg.match? n.to_s }
     elsif arg
       my_each { |n| return false unless arg === n }
     end
@@ -126,3 +127,5 @@ end
 def multiply_els(arr)
   arr.my_inject { |accumulator, n| accumulator * n }
 end
+
+puts [1, 2i, 3.14].my_all?(Numeric)                       #=> true
