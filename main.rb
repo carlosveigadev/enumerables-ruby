@@ -11,5 +11,11 @@ module Enumerable
     self
   end
 
-  
+  def my_select
+    return enum_for(__method__) unless block_given?
+
+    array = []
+    my_each { |n| array << n if yield n }
+    array
+  end
 end
