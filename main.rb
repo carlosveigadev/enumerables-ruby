@@ -39,4 +39,25 @@ module Enumerable
       my_each { |n| return false unless n.is_a? arg }
     end
   end
+
+  def my_any?(arg = nil)
+    if arg
+      puts "#{__FILE__}:#{__LINE__}: w: block not used" if block_given?
+      return my_any_extra_func(arg)
+    elsif block_given?
+      my_each { |n| return true if yield n }
+    else
+      my_each { |n| return true if n }
+    end
+    false
+  end
+
+  def my_any_extra_func(arg)
+    if arg.is_a?(Regexp)
+      my_each { |n| return false unless fun.match? n.to_s }
+    elsif arg
+      my_each { |n| return false unless arg === n }
+    end
+  end
+  
 end
