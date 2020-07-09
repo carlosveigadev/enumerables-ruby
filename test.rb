@@ -18,4 +18,13 @@ puts "\n"
 print [1,2,3,4,5].select { |num|  num.even? }
 puts "\n\n\n"
 
+puts "my_all"
+puts %w[ant bear cat].all? { |word| word.length >= 3 }
+puts %w[ant bear cat].all? { |word| word.length >= 4 }
+puts %w[ant bear cat].all?(/t/)                        
+puts [1, 2i, 3.14].all?(Numeric)                       
+puts [nil, true, 99].all?                              
+puts [].all?         
+puts "\n\n\n"
+
 
