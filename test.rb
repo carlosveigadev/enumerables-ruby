@@ -19,12 +19,20 @@ print [1,2,3,4,5].select { |num|  num.even? }
 puts "\n\n\n"
 
 puts "my_all"
-puts %w[ant bear cat].all? { |word| word.length >= 3 }
-puts %w[ant bear cat].all? { |word| word.length >= 4 }
-puts %w[ant bear cat].all?(/t/)                        
-puts [1, 2i, 3.14].all?(Numeric)                       
-puts [nil, true, 99].all?                              
-puts [].all?         
+puts %w[ant bear cat].all? { |word| word.length >= 3 } #=> true
+puts %w[ant bear cat].all? { |word| word.length >= 4 } #=> false
+puts %w[ant bear cat].all?(/t/)                        #=> false
+puts [1, 2i, 3.14].all?(Numeric)                       #=> true
+puts [nil, true, 99].all?                              #=> false
+puts [].all?                                           #=> true 
 puts "\n\n\n"
 
+puts "my_any"
+puts %w[ant bear cat].any? { |word| word.length >= 3 } #=> true
+puts %w[ant bear cat].any? { |word| word.length >= 4 } #=> true
+puts %w[ant bear cat].any?(/d/)                        #=> false
+puts [nil, true, 99].any?(Integer)                     #=> true
+puts [nil, true, 99].any?                              #=> true
+puts [].any?                                           #=> false
+puts "\n\n\n"
 
