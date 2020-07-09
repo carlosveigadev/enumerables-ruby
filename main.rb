@@ -59,5 +59,15 @@ module Enumerable
       my_each { |n| return false unless arg === n }
     end
   end
-  
+
+  def my_none?(arg = nil)
+    if arg
+      puts "#{__FILE__}:#{__LINE__}: w: block not used" if block_given?
+      !my_any?(arg)
+    elsif block_given?
+      !my_any?(&Proc.new)
+    else
+      !my_any?
+    end
+  end
 end
