@@ -13,4 +13,9 @@ hash = Hash.new
 puts hash
 puts "\n\n\n"
 
+puts "my_select"
+puts "\n"
+print [1,2,3,4,5].select { |num|  num.even? }
+puts "\n\n\n"
+
 
