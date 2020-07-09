@@ -1,7 +1,6 @@
 AllCops:
   Exclude:
-    - "Guardfile"
-    - "Rakefile"
+    - "test.rb"
 
   DisplayCopNames: true
 
@@ -14,7 +13,6 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ['describe']
   Max: 30
 Metrics/ModuleLength:
   Max: 120
