@@ -1,5 +1,5 @@
 # Recreation of enumerables.
-# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
@@ -61,7 +61,7 @@ module Enumerable
     if arg.is_a?(Regexp)
       my_each { |n| return false unless arg.match? n.to_s }
     elsif arg
-      my_each { |n| return false unless arg.include?(n) }
+      my_each { |n| return false unless arg === n }
     end
   end
 
@@ -90,7 +90,6 @@ module Enumerable
 
   def my_map(method = nil)
     return enum_for(__method__) unless block_given? || method
-    
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
@@ -131,4 +130,4 @@ end
 def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
-# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
