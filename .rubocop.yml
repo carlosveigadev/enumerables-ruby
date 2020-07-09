@@ -38,3 +38,8 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Performance/HashEachMethods:
   Enabled: false
+
+Lint/RaiseException: false
+Lint/StructNewOverride: false
+Style/HashTransformKeys: false
+Style/HashTransformValues: false

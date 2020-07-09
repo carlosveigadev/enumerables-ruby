@@ -3,18 +3,21 @@
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
+
     size.times { |i| yield to_a[i] }
     self
   end
 
   def my_each_with_index
     return enum_for(__method__) unless block_given?
+
     size.times { |i| yield to_a[i], i }
     self
   end
 
   def my_select
     return enum_for(__method__) unless block_given?
+
     array = []
     my_each { |n| array << n if yield n }
     array
@@ -23,6 +26,7 @@ module Enumerable
   def my_all?(arg = nil)
     puts "#{__FILE__}:#{__LINE__}: w: block not used" if arg && block_given?
     return my_all_extra_func(arg) if arg
+
     if !block_given?
       size.times { |n| return false if to_a[n] == false || to_a[n].nil? }
     else
@@ -86,6 +90,7 @@ module Enumerable
 
   def my_map(method = nil)
     return enum_for(__method__) unless block_given? || method
+    
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
