@@ -94,4 +94,35 @@ module Enumerable
     end
     mapped
   end 
+
+  def my_inject(param1 = nil, param2 = nil)
+    arr = is_a?(Array) ? self : to_a
+    sym = param1 if param1.is_a?(Symbol) || param1.is_a?(String)
+    accumulator = param1 if param1.is_a? Integer
+
+    if param1.is_a?(Integer)
+      if param2.is_a?(Symbol) || param2.is_a?(String)
+        sym = param2
+      elsif !block_given?
+        raise "#{param2} is not a symbol nor a string"
+      end
+    elsif param1.is_a?(Symbol) || param1.is_a?(String)
+      raise "#{param2} is not a symbol nor a string" if !param2.is_a?(Symbol) && !param2.nil?
+
+      raise "undefined method `#{param2}' for :#{param2}:Symbol" if param2.is_a?(Symbol) && !param2.nil?
+    end
+
+    if sym
+      arr.my_each { |n| accumulator = accumulator ? accumulator.send(sym, n) : n }
+    elsif block_given?
+      arr.my_each { |n| accumulator = accumulator ? yield(accumulator, n) : n }
+    else
+      raise 'no block given'
+    end
+    accumulator
+  end
+end
+
+def multiply_els(arr)
+  arr.my_inject { |accumulator, n| accumulator * n }
 end

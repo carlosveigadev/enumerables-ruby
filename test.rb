@@ -56,3 +56,11 @@ puts "\n\n\n"
 
 puts "my_map"
 puts (1..4).my_map { |i| i*i }      #=> [1, 4, 9, 16]
+
+puts "my_inject"
+puts (5..10).my_inject { |sum, n| sum + n }         #=> 45
+puts (5..10).inject(1) { |product, n| product * n } #=> 151200
+longest = %w{ cat sheep bear }.my_inject do |memo, word|
+  memo.length > word.length ? memo : word
+end
+puts longest                                        #=> "sheep"
