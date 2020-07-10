@@ -40,7 +40,7 @@ module Enumerable
       my_each { |n| return false unless arg.match? n.to_s }
       true
     elsif arg
-      my_each { |n| return false unless arg === n}
+      my_each { |n| return false unless arg === n }
     end
     true
   end
@@ -63,7 +63,7 @@ module Enumerable
     else
       my_each { |n| return true if arg === n }
     end
-    false
+    true
   end
 
   def my_none?(arg = nil)

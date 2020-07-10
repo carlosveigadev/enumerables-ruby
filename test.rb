@@ -48,6 +48,7 @@ puts [].my_none?                                           #=> true
 puts [nil].my_none?                                        #=> true
 puts [nil, false].my_none?                                 #=> true
 puts [nil, false, true].my_none?                           #=> false
+puts %w{ant bear cat}.my_none?(4)                          #=> false
 puts "\n\n\n"
 
 puts 'my_count'
