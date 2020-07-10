@@ -59,11 +59,11 @@ module Enumerable
 
   def my_any_extra_func(arg)
     if arg.is_a?(Regexp)
-      my_each { |n| return false unless arg.match? n.to_s }
-    elsif arg
-      my_each { |n| return false unless arg === n }
+      my_each { |n| return true if arg.match? n.to_s }
+    else
+      my_each { |n| return true if arg === n }
     end
-    true
+    false
   end
 
   def my_none?(arg = nil)
@@ -132,4 +132,3 @@ def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
 # rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
-puts [2, 3, 4].my_any?(Numeric)
