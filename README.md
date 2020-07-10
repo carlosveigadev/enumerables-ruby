@@ -33,13 +33,7 @@ The following methods were created and tested:
 
 - Github: [@wrakc](https://github.com/wrakc)
 - Twitter: [@carlosveig](https://twitter.com/carlosveig)
-- Linkedin: [chveiga](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/chveiga)
+- Linkedin: [chveiga](https://linkedin.com/chveiga)
 
 ## 🤝 Contributing
 
