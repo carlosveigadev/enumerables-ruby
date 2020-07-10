@@ -1,0 +1,50 @@
+AllCops:
+  Exclude:
+    - "test.rb"
+
+  DisplayCopNames: true
+
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 25
+Metrics/AbcSize:
+  Max: 50
+Metrics/ClassLength:
+  Max: 150
+Metrics/BlockLength:
+  Max: 30
+Metrics/ModuleLength:
+  Max: 120
+
+
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/EachForSimpleLoop:
+  Enabled: false
+Style/AndOr:
+  Enabled: false
+Style/DefWithParentheses:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+Performance/HashEachMethods:
+  Enabled: false
+Lint/RaiseException: 
+  Enabled: false
+Lint/StructNewOverride: 
+  Enabled: false
+Style/HashTransformKeys: 
+  Enabled: false
+Style/HashTransformValues: 
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false

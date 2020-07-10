@@ -1,57 +1,39 @@
-# Project Name
+# Building Blocks - Enumerables
 
-> One paragraph statement about the project.
+> In this project, I implemented my own version of [Ruby’s enumerable methods](https://ruby-doc.org/core-2.7.1/Enumerable.html).
 
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+The following methods were created and tested:
+- my_each
+- my_each_with_index
+- my_select
+- my_all?
+- my_any?
+- my_none?
+- my_count
+- my_map
+- my_inject
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Ruby
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[![Run on Repl.it](https://repl.it/@wrakc/enumerables-ruby#test.rb)](hhttps://repl.it/@wrakc/enumerables-ruby#test.rb)
 
+- Click the run button on the top.
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+**GitClone the repository in your local environment, then run `ruby test.rb`to check the methods working.**
 
+## Author
 
-To get a local copy up and running follow these simple example steps.
+👤 **Carlos Veiga**
 
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
-
-## Authors
-
-👤 **Author1**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@wrakc](https://github.com/wrakc)
+- Twitter: [@carlosveig](https://twitter.com/carlosveig)
+- Linkedin: [chveiga](https://linkedin.com/chveiga)
 
 ## 🤝 Contributing
 
@@ -65,9 +47,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Thanks Microverse and The Minskins team.
 
 ## 📝 License
 
