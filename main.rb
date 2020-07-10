@@ -122,7 +122,7 @@ module Enumerable
     elsif block_given?
       arr.my_each { |n| accum = accum ? yield(accum, n) : n }
     else
-      raise 'no block given'
+      puts "LocalJumpError"
     end
     accum
   end
@@ -132,3 +132,6 @@ def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
 # rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+p array.my_count(5)
+p array.my_inject
