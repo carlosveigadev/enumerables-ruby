@@ -40,7 +40,7 @@ module Enumerable
       my_each { |n| return false unless arg.match? n.to_s }
       true
     elsif arg
-      my_each { |n| return false unless n.is_a? arg }
+      my_each { |n| return false unless arg === n}
     end
     true
   end
@@ -63,6 +63,7 @@ module Enumerable
     elsif arg
       my_each { |n| return false unless arg === n }
     end
+    true
   end
 
   def my_none?(arg = nil)
@@ -131,3 +132,4 @@ def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
 # rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
+puts [2, 3, 4].my_any?(Numeric)
