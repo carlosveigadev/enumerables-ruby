@@ -1,4 +1,4 @@
-require './main.rb'
+require_relative './main.rb'
 
 puts 'my_each'
 puts '\n'
