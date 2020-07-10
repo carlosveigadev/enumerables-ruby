@@ -37,7 +37,7 @@ module Enumerable
 
   def my_all_extra_func(arg)
     if arg.is_a?(Regexp)
-      my_each { |n| (n =~ arg).nil? ? false : 'Error' }
+      my_each { |n| return false unless arg.match? n.to_s }
       true
     elsif arg
       my_each { |n| return false unless n.is_a? arg }
