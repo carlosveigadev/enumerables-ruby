@@ -19,7 +19,7 @@ The following methods were created and tested:
 
 ## Live Demo
 
-[![Run on Repl.it](https://repl.it/@wrakc/enumerables-ruby#test.rb)](hhttps://repl.it/@wrakc/enumerables-ruby#test.rb)
+[![Run on Repl.it](https://repl.it/@wrakc/enumerables-ruby#README.md)
 
 - Click the run button on the top.
 
