@@ -1,2 +1,1 @@
-ruby main.rb
-#!/bin/bash ruby main.rb
+ruby test.rb
