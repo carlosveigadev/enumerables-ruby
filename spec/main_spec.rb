@@ -32,6 +32,10 @@
       #   expect(array_words.my_each_with_index{ |_n, index| result << index}).to eql(result)
       # end
 
+      it "should return an enumerator whenever a block is not passed to my_each_with_index" do
+        expect(array_numbers.my_each_with_index).to be_an Enumerator
+      end
+
     end
 
 

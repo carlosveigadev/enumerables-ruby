@@ -75,6 +75,5 @@ puts "\n\n\n"
 puts 'myltiply_els'
 puts multiply_els([2,4,5]) #=> 40
 
-empty = []
-["a", "b", "c"].my_each_with_index {|_n, i| empty.push(i)}
-p empty
+
+p ["a", "b", "c"].my_each_with_index 
