@@ -170,5 +170,16 @@ describe 'Enumerables' do
       expect(array_numbers.my_count { |x| x%2==0 }).to eql(array_numbers.count { |x| x%2==0 })
     end
   end
+
+  describe '#my_map' do
+    it 'Returns a new array with the results of running block once for every element in enumerator' do
+      expect((1..4).my_map { |i| i*i }).to eql([1, 4, 9, 16])
+    end
+
+    it 'If no block is given, an enumerator is returned instead' do
+      expect(array_numbers.my_map).to be_an Enumerator
+    end
+  end
+
   
 end
