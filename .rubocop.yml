@@ -5,7 +5,7 @@ AllCops:
   DisplayCopNames: true
 
 Metrics/LineLength:
-  Max: 120
+  Max: 300
 Metrics/MethodLength:
   Max: 25
 Metrics/AbcSize:
@@ -15,7 +15,7 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   Max: 300
 Metrics/ModuleLength:
-  Max: 120
+  Max: 200
 
 
 Style/Documentation:

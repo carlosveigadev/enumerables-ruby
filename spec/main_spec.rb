@@ -112,49 +112,48 @@ describe 'Enumerables' do
   end
 
   describe '#my_none' do
-  it 'should return true if none of the elements on the array are equal to the passing the block' do
-    expect(array_words.my_none?{ |word| word.length == 5 }).to eql(true)
-  end
+    it 'should return true if none of the elements on the array are equal to the passing the block' do
+      expect(array_words.my_none? { |word| word.length == 5 }).to eql(true)
+    end
 
-  it 'should return false if at least one of the elements are equal true on the array after passing the block' do
-    expect(array_words.my_none? { |word| word.length >= 4 }).to eql(false)
-  end
+    it 'should return false if at least one of the elements are equal true on the array after passing the block' do
+      expect(array_words.my_none? { |word| word.length >= 4 }).to eql(false)
+    end
 
-  it 'should return true if none of the elements on the argument contain the regex /d/ passed' do
-    expect(array_words.my_none?(/d/)).to eql(true)
-  end
+    it 'should return true if none of the elements on the argument contain the regex /d/ passed' do
+      expect(array_words.my_none?(/d/)).to eql(true)
+    end
 
-  it 'should return false if none of the elements on the argument contain the regex /a/ passed' do
-    expect(array_words.my_none?(/a/)).to eql(false)
-  end
+    it 'should return false if none of the elements on the argument contain the regex /a/ passed' do
+      expect(array_words.my_none?(/a/)).to eql(false)
+    end
 
-  it 'should return false if at least one of the elements in the array are equal to the class passed as argument' do
-    expect([1, 3.14, 42].my_none?(Float)).to eql(false)
-  end
+    it 'should return false if at least one of the elements in the array are equal to the class passed as argument' do
+      expect([1, 3.14, 42].my_none?(Float)).to eql(false)
+    end
 
-  it 'should return true if the array is empty because there is no elements to compare and return false' do
-    expect([].my_none?).to eql(true)
-  end
+    it 'should return true if the array is empty because there is no elements to compare and return false' do
+      expect([].my_none?).to eql(true)
+    end
 
-  it 'when an array is nill, and no block is given, should return true because there is nothing to compare with the element on the array' do
-    expect([nil].my_none?).to eql(true)
-  end
+    it 'when an array is nill, and no block is given, returns true because there is nothing to compare with array' do
+      expect([nil].my_none?).to eql(true)
+    end
 
-  it 'when an array is nill or false, and no block is given, should return true because there is nothing to compare with the elements on the array' do
-    expect([nil, false].my_none?).to eql(true)  
-  end
+    it 'when an array is nill or false, and no block is given, should return true because there is nothing to compare with the array' do
+      expect([nil, false].my_none?).to eql(true)
+    end
 
-  it 'If the block is not given, my_none? will return true only if none of the elements on the array is equal to true.' do
-    expect([nil, false, true].my_none? ).to eql(false)  
-  end
+    it 'If the block is not given, my_none? will return true only if none of the elements on the array is equal to true.' do
+      expect([nil, false, true].my_none?).to eql(false)
+    end
 
-  it 'should return true if at least one of the elements on the array matches the class on the argument' do
-    expect([nil, true, 99].my_any?(Integer)).to eql(true)
-  end
+    it 'should return true if at least one of the elements on the array matches the class on the argument' do
+      expect([nil, true, 99].my_any?(Integer)).to eql(true)
+    end
 
-  it 'should return true if at least on element on the array return true' do
-    expect([nil, false, 99].my_any?).to eql(true)
+    it 'should return true if at least on element on the array return true' do
+      expect([nil, false, 99].my_any?).to eql(true)
+    end
   end
-end
-
 end
