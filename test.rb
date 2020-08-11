@@ -76,4 +76,3 @@ puts 'myltiply_els'
 puts multiply_els([2,4,5]) #=> 40
 
 
-p [].my_all?
