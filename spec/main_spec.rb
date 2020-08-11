@@ -39,11 +39,11 @@ describe 'Enumerables' do
 
   describe '#my_select' do
     it 'should select the element based on the block' do
-      expect(array_numbers.my_select{ |num| num.even? }).to eql([2,4])
+      expect(array_numbers.my_select(&:even?)).to eql([2, 4])
     end
 
     it 'should select the element based on the block' do
-      expect(array_numbers.my_select{ |num| num.odd? }).to eql([1,3,5])
+      expect(array_numbers.my_select(&:odd?)).to eql([1, 3, 5])
     end
 
     it 'should return an enumerator whenever a block is not passed to my_select' do
@@ -76,10 +76,40 @@ describe 'Enumerables' do
       expect([nil, true, 99].my_all?).to eql(false)
     end
 
-    it 'should return true if the array is empty becaouse there is no elements to return nil or false' do
+    it 'should return true if the array is empty because there is no elements to return nil or false' do
       expect([].my_all?).to eql(true)
     end
-    
-
   end
+
+  describe '#my_any' do
+    it 'should return true if at least one of the elements on the argument return true after passing the block' do
+      expect(array_words.my_any? { |word| word.length >= 4 }).to eql(true)
+    end
+
+    it 'should return false if none of the elements on the argument return true after passing the block' do
+      expect(array_words.my_any? { |word| word.length >= 5 }).to eql(false)
+    end
+
+    it 'should return true if at least one of the elements on the argument contain the regex passed' do
+      expect(array_words.my_any?(/r/)).to eql(true)
+    end
+
+    it 'should return false if none of the elements on the argument contain the regex passed' do
+      expect(array_words.my_any?(/z/)).to eql(false)
+    end
+
+    it 'should return true if at least one of the elements on the array matches the class on the argument' do
+      expect([nil, true, 99].my_any?(Integer)).to eql(true)
+    end
+
+    it 'should return true if at least on element on the array return true' do
+      expect([nil, false, 99].my_any?).to eql(true)
+    end
+
+    it 'should return false if the array is empty because there is no elements to return true' do
+      expect([].my_any?).to eql(false)
+    end
+  end
+
+
 end
