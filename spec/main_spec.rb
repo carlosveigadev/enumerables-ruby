@@ -2,7 +2,7 @@ require './main.rb'
 
 describe 'Enumerables' do
   let(:result) { [] }
-  let(:array_words) { %w[a b c] }
+  let(:array_words) { %w[ant bear cat] }
   let(:array_numbers) { [1, 2, 3, 4, 5] }
 
   describe '#my_each' do
@@ -49,5 +49,37 @@ describe 'Enumerables' do
     it 'should return an enumerator whenever a block is not passed to my_select' do
       expect(array_numbers.my_select).to be_an Enumerator
     end
+  end
+
+  describe '#my_all' do
+    it 'should return true if all the elements on the argument return true after passing the block' do
+      expect(array_words.my_all? { |word| word.length >= 3 }).to eql(true)
+    end
+
+    it 'should return false if only one of the elements on the argument return false after passing the block' do
+      expect(array_words.my_all? { |word| word.length >= 4 }).to eql(false)
+    end
+
+    it 'should return true if all the elements on the argument contain the regex passed' do
+      expect(array_words.my_all?(/a/)).to eql(true)
+    end
+
+    it 'should return false if only one of the elements on the argument do not contain the regex passed' do
+      expect(array_words.my_all?(/t/)).to eql(false)
+    end
+
+    it 'should return true if all the elements on the array are the same class on the argument' do
+      expect(array_numbers.my_all?(Numeric)).to eql(true)
+    end
+
+    it 'should return false if at least on element on the array return false or nil' do
+      expect([nil, true, 99].my_all?).to eql(false)
+    end
+
+    it 'should return true if the array is empty becaouse there is no elements to return nil or false' do
+      expect([].my_all?).to eql(true)
+    end
+    
+
   end
 end

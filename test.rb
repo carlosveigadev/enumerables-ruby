@@ -76,4 +76,4 @@ puts 'myltiply_els'
 puts multiply_els([2,4,5]) #=> 40
 
 
-p ["a", "b", "c"].my_select
+p [].my_all?
