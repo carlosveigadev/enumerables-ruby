@@ -36,4 +36,18 @@ describe 'Enumerables' do
       expect(array_numbers.my_each_with_index).to be_an Enumerator
     end
   end
+
+  describe '#my_select' do
+    it 'should select the element based on the block' do
+      expect(array_numbers.my_select{ |num| num.even? }).to eql([2,4])
+    end
+
+    it 'should select the element based on the block' do
+      expect(array_numbers.my_select{ |num| num.odd? }).to eql([1,3,5])
+    end
+
+    it 'should return an enumerator whenever a block is not passed to my_select' do
+      expect(array_numbers.my_select).to be_an Enumerator
+    end
+  end
 end
