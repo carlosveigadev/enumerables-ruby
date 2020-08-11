@@ -54,9 +54,9 @@ puts "\n\n\n"
 
 puts 'my_count'
 ary = [1, 2, 4, 2]
-puts ary.count               #=> 4
-puts ary.count(2)            #=> 2
-puts ary.count{ |x| x%2==0 } #=> 3
+puts ary.my_count               #=> 4
+puts ary.my_count(2)            #=> 2
+puts ary.my_count{ |x| x%2==0 } #=> 3
 puts "\n\n\n"
 
 puts 'my_map'

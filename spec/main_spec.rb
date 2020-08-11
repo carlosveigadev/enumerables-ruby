@@ -156,4 +156,19 @@ describe 'Enumerables' do
       expect([nil, false, 99].my_any?).to eql(true)
     end
   end
+
+  describe '#my_count' do
+    it 'should count the number of elements on the array' do
+      expect(array_numbers.my_count).to eql(array_numbers.count)
+    end
+
+    it 'should return the number of elements that are equal to the argument passed as integer' do
+      expect(array_numbers.my_count(2)).to eql(array_numbers.count(2))
+    end
+
+    it 'should return the number of elements that are equal to the block given' do
+      expect(array_numbers.my_count { |x| x%2==0 }).to eql(array_numbers.count { |x| x%2==0 })
+    end
+  end
+  
 end
