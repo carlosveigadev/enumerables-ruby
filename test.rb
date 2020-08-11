@@ -6,6 +6,7 @@ a = %w[a b c]
 a.each { |x| print x, ' -- ' } #=> a -- b -- c --
 puts "\n\n\n"
 
+
 puts 'my_each_with_index'
 puts '\n'
 hash = {}
