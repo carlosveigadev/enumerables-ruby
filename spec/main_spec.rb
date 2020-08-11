@@ -25,8 +25,12 @@
       end
 
       it "should return the iteration of an array with numbers to my_each_with_index" do
-        expect(array_numbers.my_each_with_index{ |n, _i| result << n}).to eql(result)
+        expect(array_numbers.my_each_with_index{ |n, _i| result << n }).to eql(result)
       end
+
+      # it "should return the indices of the iteration over an array of words using my_each_with_index" do
+      #   expect(array_words.my_each_with_index{ |_n, index| result << index}).to eql(result)
+      # end
 
     end
 
