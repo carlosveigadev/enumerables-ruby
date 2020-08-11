@@ -28,9 +28,10 @@ describe 'Enumerables' do
       expect(array_numbers.my_each_with_index { |n, _i| result << n }).to eql(result)
     end
 
-    # it "should return the indices of the iteration over an array of words using my_each_with_index" do
-    #   expect(array_words.my_each_with_index{ |_n, index| result << index}).to eql(result)
-    # end
+    it 'should return the indices of the iteration over an array of words using my_each_with_index' do
+      hash = {}
+      expect(hash = array_words.my_each_with_index { |item, index| hash[item] = index }).to eql(hash)
+    end
 
     it 'should return an enumerator whenever a block is not passed to my_each_with_index' do
       expect(array_numbers.my_each_with_index).to be_an Enumerator
@@ -167,13 +168,13 @@ describe 'Enumerables' do
     end
 
     it 'should return the number of elements that are equal to the block given' do
-      expect(array_numbers.my_count { |x| x%2==0 }).to eql(array_numbers.count { |x| x%2==0 })
+      expect(array_numbers.my_count(&:even?)).to eql(array_numbers.count(&:even?))
     end
   end
 
   describe '#my_map' do
     it 'Returns a new array with the results of running block once for every element in enumerator' do
-      expect((1..4).my_map { |i| i*i }).to eql([1, 4, 9, 16])
+      expect((1..4).my_map { |i| i * i }).to eql([1, 4, 9, 16])
     end
 
     it 'If no block is given, an enumerator is returned instead' do
@@ -189,14 +190,9 @@ describe 'Enumerables' do
     it 'Combines all elements of enum by applying a binary operation, specified by a block that names a method or operator and the argument it is set as the first item' do
       expect(array_numbers.my_inject(2) { |product, n| product * n }).to eql(240)
     end
-    
+
     it 'Compare all the elements on the array by applying a block that names a method or operator' do
-      expect(array_words.my_inject { |memo, word| memo.length > word.length ? memo : word}).to eql('bear')
+      expect(array_words.my_inject { |memo, word| memo.length > word.length ? memo : word }).to eql('bear')
     end
-
-    
   end
-
-
-  
 end

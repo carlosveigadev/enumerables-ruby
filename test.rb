@@ -75,4 +75,3 @@ puts "\n\n\n"
 puts 'myltiply_els'
 puts multiply_els([2,4,5]) #=> 40
 
-
