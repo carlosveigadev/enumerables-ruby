@@ -181,5 +181,22 @@ describe 'Enumerables' do
     end
   end
 
+  describe '#my_inject' do
+    it 'Combines all elements of enum by applying a binary operation, specified by a symbol that names a method or operator' do
+      expect(array_numbers.my_inject(:+)).to eql(15)
+    end
+
+    it 'Combines all elements of enum by applying a binary operation, specified by a block that names a method or operator and the argument it is set as the first item' do
+      expect(array_numbers.my_inject(2) { |product, n| product * n }).to eql(240)
+    end
+    
+    it 'Compare all the elements on the array by applying a block that names a method or operator' do
+      expect(array_words.my_inject { |memo, word| memo.length > word.length ? memo : word}).to eql('bear')
+    end
+
+    
+  end
+
+
   
 end
