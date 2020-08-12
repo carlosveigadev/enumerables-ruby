@@ -194,5 +194,9 @@ describe 'Enumerables' do
     it 'Compare all the elements on the array by applying a block that names a method or operator' do
       expect(array_words.my_inject { |memo, word| memo.length > word.length ? memo : word }).to eql('bear')
     end
+
+    it 'raises a "LocalJumpError" when no block or argument is given' do
+      expect{array_numbers.my_inject}.to raise_error LocalJumpError
+    end
   end
 end

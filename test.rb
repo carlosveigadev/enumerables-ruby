@@ -73,5 +73,8 @@ puts longest                                        #=> 'sheep'
 puts "\n\n\n"
 
 puts 'myltiply_els'
-puts multiply_els([2,4,5]) #=> 40
+[2,4,5].my_inject #=> 40
+[2,4,5].inject
+# [2,4,5].my_inject #=> 40
+
 
