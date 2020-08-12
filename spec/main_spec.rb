@@ -196,7 +196,7 @@ describe 'Enumerables' do
     end
 
     it 'raises a "LocalJumpError" when no block or argument is given' do
-      expect{array_numbers.my_inject}.to raise_error LocalJumpError
+      expect { array_numbers.my_inject }.to raise_error LocalJumpError
     end
   end
 end
