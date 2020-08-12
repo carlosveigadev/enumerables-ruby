@@ -121,7 +121,7 @@ module Enumerable
       arr.my_each { |n| accum = accum ? accum.send(sym, n) : n }
     elsif block_given?
       arr.my_each { |n| accum = accum ? yield(accum, n) : n }
-    else 
+    else
       raise LocalJumpError
     end
     accum
