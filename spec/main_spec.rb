@@ -137,11 +137,11 @@ describe 'Enumerables' do
       expect([].my_none?).to eql(true)
     end
 
-    it 'when an array is nill, and no block is given, returns true because there is nothing to compare with array' do
+    it 'when an array is nil, and no block is given, returns true because there is nothing to compare with array' do
       expect([nil].my_none?).to eql(true)
     end
 
-    it 'when an array is nill or false, and no block is given, should return true because there is nothing to compare with the array' do
+    it 'when an array is nil or false, and no block is given, should return true because there is nothing to compare with the array' do
       expect([nil, false].my_none?).to eql(true)
     end
 
@@ -193,10 +193,6 @@ describe 'Enumerables' do
 
     it 'Compare all the elements on the array by applying a block that names a method or operator' do
       expect(array_words.my_inject { |memo, word| memo.length > word.length ? memo : word }).to eql('bear')
-    end
-
-    it 'raises a "LocalJumpError" when no block or argument is given' do
-      expect { array_numbers.my_inject }.to raise_error LocalJumpError
     end
   end
 end
