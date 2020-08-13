@@ -57,8 +57,16 @@ describe 'Enumerables' do
       expect(array_words.my_all? { |word| word.length >= 3 }).to eql(true)
     end
 
+    it 'should return true if all the elements on the argument return true after passing the block' do
+      expect(array_words.my_all? { |word| word.length >= 3 }).not_to eql(false)
+    end
+
     it 'should return false if only one of the elements on the argument return false after passing the block' do
       expect(array_words.my_all? { |word| word.length >= 4 }).to eql(false)
+    end
+
+    it 'should return false if only one of the elements on the argument return false after passing the block' do
+      expect(array_words.my_all? { |word| word.length >= 4 }).not_to eql(true)
     end
 
     it 'should return true if all the elements on the argument contain the regex passed' do
