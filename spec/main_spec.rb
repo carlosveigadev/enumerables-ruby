@@ -149,11 +149,13 @@ describe 'Enumerables' do
       expect([nil].my_none?).to eql(true)
     end
 
-    it 'when an array is nil or false, and no block is given, should return true because there is nothing to compare with the array' do
+    it 'when an array is nil or false, and no block is given,
+    should return true because there is nothing to compare with the array' do
       expect([nil, false].my_none?).to eql(true)
     end
 
-    it 'If the block is not given, my_none? will return true only if none of the elements on the array is equal to true.' do
+    it 'If the block is not given, my_none? will return true only if none of the
+    elements on the array is equal to true.' do
       expect([nil, false, true].my_none?).to eql(false)
     end
 
@@ -191,11 +193,13 @@ describe 'Enumerables' do
   end
 
   describe '#my_inject' do
-    it 'Combines all elements of enum by applying a binary operation, specified by a symbol that names a method or operator' do
+    it 'Combines all elements of enum by applying a binary operation,
+    specified by a symbol that names a method or operator' do
       expect(array_numbers.my_inject(:+)).to eql(15)
     end
 
-    it 'Combines all elements of enum by applying a binary operation, specified by a block that names a method or operator and the argument it is set as the first item' do
+    it 'Combines all elements of enum by applying a binary operation,
+    specified by a block that names a method or operator and the argument it is set as the first item' do
       expect(array_numbers.my_inject(2) { |product, n| product * n }).to eql(240)
     end
 
