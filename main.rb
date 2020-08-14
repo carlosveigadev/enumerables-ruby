@@ -1,5 +1,5 @@
 # Recreation of enumerables.
-# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality, Metrics/ModuleLength, Metrics/MethodLength
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
@@ -91,6 +91,7 @@ module Enumerable
 
   def my_map(method = nil)
     return enum_for(__method__) unless block_given? || method
+
     mapped = []
     if method
       my_each { |n| mapped << (method.yield n) }
@@ -122,7 +123,7 @@ module Enumerable
     elsif block_given?
       arr.my_each { |n| accum = accum ? yield(accum, n) : n }
     else
-      puts 'LocalJumpError'
+      raise LocalJumpError
     end
     accum
   end
@@ -131,4 +132,4 @@ end
 def multiply_els(arr)
   arr.my_inject { |accum, n| accum * n }
 end
-# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/CaseEquality, Metrics/ModuleLength, Metrics/MethodLength
