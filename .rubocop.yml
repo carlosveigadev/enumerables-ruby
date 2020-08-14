@@ -1,21 +1,21 @@
 AllCops:
   Exclude:
-    - "test.rb"
+    - "Guardfile"
+    - "Rakefile"
 
   DisplayCopNames: true
 
-Metrics/LineLength:
-  Max: 300
+Layout/LineLength:
+  Max: 120
 Metrics/MethodLength:
-  Max: 25
+  Max: 20
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  Max: 300
-Metrics/ModuleLength:
-  Max: 200
+  ExcludedMethods: ['describe']
+  Max: 30
 
 
 Style/Documentation:
@@ -31,20 +31,20 @@ Style/DefWithParentheses:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
+Layout/HashAlignment:
+  EnforcedColonStyle: key
 Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-Performance/HashEachMethods:
+Lint/RaiseException:
   Enabled: false
-Lint/RaiseException: 
+Lint/StructNewOverride:
   Enabled: false
-Lint/StructNewOverride: 
+Style/HashEachMethods:
   Enabled: false
-Style/HashTransformKeys: 
+Style/HashTransformKeys:
   Enabled: false
-Style/HashTransformValues: 
-  Enabled: false
-Layout/EmptyLineAfterGuardClause:
+Style/HashTransformValues:
   Enabled: false
