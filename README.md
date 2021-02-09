@@ -31,13 +31,13 @@ The following methods were created and tested:
 
 👤 **Carlos Veiga**
 
-- Github: [@wrakc](https://github.com/wrakc)
-- Twitter: [@carlosveig](https://twitter.com/carlosveig)
-- Linkedin: [chveiga](https://linkedin.com/chveiga)
+- [GitHub](https://github.com/carlosveigadev)
+- [Twitter](https://twitter.com/carlosveigadev)
+- [LinkedIn](https://linkedin.com/carlosveigadev)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
